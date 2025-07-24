@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=True),
     sa.Column('email', sa.String(length=120), nullable=True),
-    sa.Column('password_hash', sa.String(length=128), nullable=True),
+    sa.Column('password_hash', sa.String(length=512), nullable=True),
     sa.Column('last_seen', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
@@ -77,7 +77,7 @@ def upgrade():
     op.create_table('image',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=64), nullable=True),
-    sa.Column('path', sa.String(length=128), nullable=True),
+    sa.Column('path', sa.String(length=512), nullable=True),
     sa.Column('extension', sa.String(length=8), nullable=True),
     sa.Column('dataset_id', sa.Integer(), nullable=True),
     sa.Column('subject', sa.String(length=16), nullable=True),

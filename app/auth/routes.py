@@ -6,7 +6,10 @@ Module with blueprint specific routes
 
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user
-from werkzeug.urls import url_parse
+#from werkzeug.urls import url_parse
+from urllib.parse import quote as url_quote
+from urllib.parse import urlparse as url_parse
+
 from app import db
 from app.auth import bp
 from app.auth.forms import (LoginForm, RegistrationForm,

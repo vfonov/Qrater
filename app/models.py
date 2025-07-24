@@ -48,9 +48,9 @@ class Rater(UserMixin, db.Model):
     """SQLALCHEMY Model of Raters (Users)."""
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
+    username = db.Column(db.String(128), index=True, unique=True)
+    email = db.Column(db.String(256), index=True, unique=True)
+    password_hash = db.Column(db.String(512))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     ratings = db.relationship("Rating", backref="rater", lazy="dynamic")
     datasets = db.relationship('Dataset', backref='creator', lazy='dynamic')
@@ -180,7 +180,7 @@ class Image(db.Model):
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    path = db.Column(db.String(128), unique=True)
+    path = db.Column(db.String(512), unique=True)
     extension = db.Column(db.String(8))
     dataset_id = db.Column(db.Integer, db.ForeignKey('dataset.id'))
     subject = db.Column(db.String(16))

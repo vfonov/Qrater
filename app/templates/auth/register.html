@@ -11,7 +11,7 @@
 {% block app_content %}
   <h1>New Rater</h1>
   <form action="" class="form" method="POST" role="form">
-    {{ form.csrf_token() }}
+    {{ form.csrf_token }}
     <div class="form-floating col-md-6 mb-3">
       <input
         type="text"
