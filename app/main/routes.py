@@ -222,7 +222,7 @@ def rate(name_dataset):
             return redirect(url_for('main.rate', all_raters=all_raters,
                                     name_dataset=name_dataset))
 
-    imgs = imgs.order_by(Image.name.asc()).paginate(page, 1, False) \
+    imgs = imgs.order_by(Image.name.asc()).paginate(page=page, per_page=1, error_out=False) \
         if pagination else None
 
     # If after filtering the query ends empty, return all of them (fuck it...)
