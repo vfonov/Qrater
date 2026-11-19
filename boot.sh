@@ -7,4 +7,5 @@ exec gunicorn \
 	--timeout 90 \
 	--access-logfile - \
 	--error-logfile - \
+	--reload \
 	qrater:app
